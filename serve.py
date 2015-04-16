@@ -16,7 +16,7 @@ class MyResource(Resource):
 
     def render_POST(self,request):
         #inputtext = cgi.escape(request.args["file_upload"][0])
-        with open("uploads/out.pdf", 'wb') as fh:
+        with open("uploads/out", 'wb') as fh:
             fh.write(request.args["file_upload"][0])
 
 
