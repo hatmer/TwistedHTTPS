@@ -9,16 +9,15 @@ from twisted.internet import reactor
 from OpenSSL import SSL
 import os
 import cgi
-
+import time
 
 class MyResource(Resource):
     isLeaf = True
 
     def render_POST(self,request):
-        #inputtext = cgi.escape(request.args["file_upload"][0])
-        with open("uploads/out", 'wb') as fh:
+        fname = "www/uploads/" + str(time.time())
+        with open(fname, 'wb') as fh:
             fh.write(request.args["file_upload"][0])
-
 
         return "done"
 
