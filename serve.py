@@ -15,7 +15,7 @@ class MyResource(Resource):
     isLeaf = True
 
     def render_POST(self,request):
-        fname = "www/uploads/" + str(time.time())
+        fname = "uploads/" + str(time.time())
         with open(fname, 'wb') as fh:
             fh.write(request.args["file_upload"][0])
 
