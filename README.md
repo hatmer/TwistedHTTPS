@@ -1,8 +1,8 @@
-Server for file transfer over HTTPS. 
+###Server for file transfer over HTTPS. 
 
 Requirements:
 
-- TwistedWeb
+###### TwistedWeb
 ```bash
 sudo apt-get install python-twisted
 ```
@@ -12,9 +12,9 @@ pip install twisted
 ```
 
 
-- Credentials for encryption
+###### Credentials for encryption
 
-You can use 
+Use 
 ```bash
 #!/bin/bash
 # Generates SSL certificate and RSA key
