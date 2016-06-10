@@ -1,4 +1,8 @@
-###Server for file transfer over HTTPS. 
+### HTTPS File Transfer Server
+
+```bash
+./launch.sh
+```
 
 Requirements:
 
