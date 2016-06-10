@@ -1,10 +1,10 @@
-<center> ### HTTPS File Transfer Server </center>
+<p align="center"> ### HTTPS File Transfer Server </p>
 
 ```bash
 ./launch.sh
 ```
 
-<center> #### Requirements </center>
+<p align="center"> #### Requirements </p>
 
 ###### TwistedWeb
 ```bash
