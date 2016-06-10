@@ -1,6 +1,7 @@
 Server for file transfer over HTTPS. 
 
-Requires python-twisted.
+Requirements:
+1. python-twisted.
 ```bash
 sudo apt-get install python-twisted
 ```
@@ -9,7 +10,7 @@ or
 pip install twisted
 ```
 
-Requires credentials for encryption.
+2. Credentials for encryption.
 
 You can use 
 ```bash
