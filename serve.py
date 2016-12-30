@@ -14,7 +14,7 @@ import time
 class MyResource(Resource):
     isLeaf = True
 
-    def render_POST(self,request):
+    def render_POST(self, request):
         fname = "uploads/" + str(time.time())
         with open(fname, 'wb') as fh:
             fh.write(request.args["file_upload"][0])
@@ -31,7 +31,7 @@ class ServeFactory(server.Site):
         timeout = 60*60*12
         root = File(pagedir)
         dbres = MyResource()
-        root.putChild("upload",dbres)
+        root.putChild("upload", dbres)
         root.childNotFound = File(pagedir+"/404.html")
         server.Site.__init__(self, root, logPath=None, timeout=timeout)
         self.service = service
