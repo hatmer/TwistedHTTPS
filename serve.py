@@ -11,14 +11,13 @@ import os
 import cgi
 import time
 
-class MyResource(Resource):
+class Uploader(Resource):
     isLeaf = True
 
     def render_POST(self, request):
         fname = "uploads/" + str(time.time())
         with open(fname, 'wb') as fh:
             fh.write(request.args["file_upload"][0])
-
         return "done"
 
 
@@ -30,20 +29,21 @@ class ServeFactory(server.Site):
         pagedir = os.getcwd() + "/www"
         timeout = 60*60*12
         root = File(pagedir)
-        dbres = MyResource()
+        dbres = Uploader()
         root.putChild("upload", dbres)
         root.childNotFound = File(pagedir+"/404.html")
         server.Site.__init__(self, root, logPath=None, timeout=timeout)
         self.service = service
 
 class ServeService(service.Service):
-
+    
     def startService(self):
         service.Service.startService(self)
 
 ### SSL ###
 
 class ServerContextFactory:
+    
     def getContext(self):
         ctx = SSL.Context(SSL.SSLv23_METHOD)
         ctx.use_certificate_file('keys/server.crt')
@@ -66,7 +66,6 @@ ssl_service.setServiceParent(top_service)
 
 # this variable has to be named 'application'
 application = service.Application("serve!")
-
 
 # this hooks the collection we made to the application
 top_service.setServiceParent(application)
